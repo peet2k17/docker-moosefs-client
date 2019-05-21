@@ -1,4 +1,9 @@
-FROM debian:stretch
+####################
+# BASE IMAGE
+####################
+FROM ubuntu:16.04
+
+MAINTAINER prc2k10@googlemail.com <prc2k10@googlemail.com>
 
 # Install wget, lsb-release, curl, fuse and tree
 RUN apt-get update && apt-get upgrade -y && apt-get install -y wget lsb-release curl fuse libfuse2  net-tools gnupg2 systemd tree
