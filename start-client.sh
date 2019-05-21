@@ -5,8 +5,8 @@ ping -c 10 mfsmaster
 
 # unmount fuse
 fusermount -uz "/mnt/moosefs"
-#rm -r /mnt/moosefs
-#mkdir -p /mnt/moosefs
+rm -r /mnt/moosefs
+mkdir -p /mnt/moosefs
 
 # mount mfs
 mfsmount /mnt/moosefs -H mfsmaster
