@@ -20,6 +20,8 @@ ADD start-client.sh /home/start-client.sh
 RUN chown root:root /home/start-client.sh
 RUN chmod 700 /home/start-client.sh
 
+RUN mkdir -p /mnt/moosefs
+
 VOLUME /mnt/moosefs
 
 CMD ["/home/start-client.sh", "-bash"]
