@@ -15,6 +15,11 @@ RUN echo "deb http://ppa.moosefs.com/moosefs-3/apt/$(awk -F= '$1=="ID" { print $
 # Install MooseFS client
 RUN apt-get update && apt-get install -y moosefs-client
 
+RUN \
+    OVERLAY_VERSION=$(curl -sX GET "https://api.github.com/repos/just-containers/s6-overlay/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]') && \
+    curl -o /tmp/s6-overlay.tar.gz -L "https://github.com/just-containers/s6-overlay/releases/download/${OVERLAY_VERSION}/s6-overlay-amd64.tar.gz" && \
+    tar xfz  /tmp/s6-overlay.tar.gz -C /
+
 # Add and run start script
 ADD start-client.sh /home/start-client.sh
 RUN chown root:root /home/start-client.sh
