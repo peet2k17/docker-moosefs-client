@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv sh
+
+umask 022
+
+mount_command="/home/start-client.sh -bash"
+
+echo "Started ${mount_command}"
+exec $mount_command

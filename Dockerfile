@@ -29,4 +29,4 @@ RUN mkdir -p /mnt/moosefs
 
 VOLUME /mnt/moosefs
 
-CMD ["/home/start-client.sh", "-bash"]
+ENTRYPOINT ["/init"]
